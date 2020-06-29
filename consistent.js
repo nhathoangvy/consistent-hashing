@@ -56,17 +56,16 @@ class Consistent extends HashRing {
     isHostBalance() {
         if (this.nodes.length == 1) return true;
         const min = this.min;
-        for (var i = 0; i < this.nodes.length; i++) {
-            console.log({
-                currIdx: i,
-                minIdx: min,
-                min: this.nodes[min].values.length, 
-                curr: this.nodes[i].values.length
-            })
-            if (i != min && ( this.nodes[i].values.length - 1 == this.nodes[min].values.length || this.nodes[i].values.length == this.nodes[min].values.length ) ) {
+        for (var i = 0; i < this.nodes.length; i++) 
+            if (i != min 
+                && 
+                ( 
+                    this.nodes[i].values.length - 1 == this.nodes[min].values.length 
+                    || 
+                    this.nodes[i].values.length == this.nodes[min].values.length 
+                ) 
+            ) 
                 return true;
-            }
-        }
         return false;
     }
 
